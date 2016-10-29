@@ -42,7 +42,7 @@ RUN apt-get autoclean && apt-get autoremove && apt-get update && \
     rm -rf /var/lib/apt/lists/*
     
 # create code directory
-RUN mkdir -p /opt/code/; cd /opt/code; git clone ${GIT_URL} ${GIT_PROJECT} && \
+RUN mkdir -p /opt/code/; cd /opt/code; git clone ${GIT_URL} && \
     mkdir -p /opt/code/${GIT_PROJECT}/nheqminer/build && cd /opt/code/${GIT_PROJECT}/nheqminer/build && \
     cmake .. && make && cp nheqminer /usr/local/bin/ && \     
     rm -rf /opt/code/    
