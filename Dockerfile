@@ -29,8 +29,7 @@
 
 FROM                 ubuntu:16.04
 MAINTAINER           Florian Maier <contact@marsmenschen.com>
-ENV GIT_PROJECT      nheqminer
-ENV GIT_URL          git://github.com/ocminer/${GIT_PROJECT}.git
+ENV GIT_URL          https://github.com/sarath-hotspot/nheqminer.git
 ENV REFRESHED_AT     2016-10-27
 
 # install dependencies
