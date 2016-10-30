@@ -29,20 +29,21 @@
 
 FROM                 ubuntu:16.04
 MAINTAINER           Florian Maier <contact@marsmenschen.com>
-ENV GIT_URL          https://github.com/sarath-hotspot/nheqminer.git
+ENV GIT_PROJECT      nheqminer
+ENV GIT_URL          git://github.com/sarath-hotspot/${GIT_PROJECT}.git
 ENV REFRESHED_AT     2016-10-27
 
 # install dependencies
 RUN apt-get autoclean && apt-get autoremove && apt-get update && \
-    apt-get -qqy install --no-install-recommends build-essential \
+    apt-get -qqy install --no-install-recommends qt5-default build-essential \
     automake ncurses-dev libcurl4-openssl-dev libssl-dev libgtest-dev \
-    make autoconf automake libtool git apt-utils pkg-config libc6-dev \
+    make autoconf automake libtool git apt-utils libboost-all-dev pkg-config libc6-dev \
     libcurl3-dev libudev-dev m4 g++-multilib unzip git python zlib1g-dev \
     wget bsdmainutils qt5-default cmake libboost-all-dev && \
     rm -rf /var/lib/apt/lists/*
     
 # create code directory
-RUN mkdir -p /opt/code/; cd /opt/code; git clone ${GIT_URL} && \
+RUN mkdir -p /opt/code/; cd /opt/code; git clone ${GIT_URL} ${GIT_PROJECT} && \
     mkdir -p /opt/code/${GIT_PROJECT}/nheqminer/build && cd /opt/code/${GIT_PROJECT}/nheqminer/build && \
     cmake .. && make && cp nheqminer /usr/local/bin/ && \     
     rm -rf /opt/code/    
