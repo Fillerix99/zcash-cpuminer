@@ -1,8 +1,8 @@
 #
 # Dockerized zcash cpuminer 
-# usage: docker run marsmensch/zcash-cpuminer -l zec.suprnova.cc:2142 -u mnschx.donate -p x 
+# usage: docker run Fillerix99/zcash-cpuminer -l zec.suprnova.cc:2142 -u mnschx.donate -p x 
 #
-# BTC tips welcome 1PboFDkBsW2i968UnehWwcSrM9Djq5LcLB
+# BTC tips welcome , please email me :)
 #
 #▒███████▒ ▄████▄   ▄▄▄        ██████  ██░ ██ 
 #▒ ▒ ▒ ▄▀░▒██▀ ▀█  ▒████▄    ▒██    ▒ ▓██░ ██▒
@@ -28,16 +28,16 @@
 # * Allow any Stratum based pool, add suprnova default (6086f95) 
 
 FROM                 ubuntu:16.04
-MAINTAINER           Florian Maier <contact@marsmenschen.com>
+MAINTAINER           Filip Nyquist <filllerix99@gmail.com>
 ENV GIT_PROJECT      nheqminer
 ENV GIT_URL          git://github.com/sarath-hotspot/${GIT_PROJECT}.git
 ENV REFRESHED_AT     2016-10-27
 
 # install dependencies
 RUN apt-get autoclean && apt-get autoremove && apt-get update && \
-    apt-get -qqy install --no-install-recommends qt5-default build-essential \
+    apt-get -qqy install --no-install-recommends build-essential \
     automake ncurses-dev libcurl4-openssl-dev libssl-dev libgtest-dev \
-    make autoconf automake libtool git apt-utils libboost-all-dev pkg-config libc6-dev \
+    make autoconf automake libtool git apt-utils pkg-config libc6-dev \
     libcurl3-dev libudev-dev m4 g++-multilib unzip git python zlib1g-dev \
     wget bsdmainutils qt5-default cmake libboost-all-dev && \
     rm -rf /var/lib/apt/lists/*
